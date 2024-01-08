@@ -16,7 +16,7 @@ async function authMiddleware(req, res, next) {
   try {
     const data = jwt.verify(token, process.env.JWT_SECRET);
     req.user = data; // Assuming you want to store user data in the request object
-    // next();
+    next();
     return res.status(StatusCodes.OK).json({ data });
   } catch (error) {
     return res

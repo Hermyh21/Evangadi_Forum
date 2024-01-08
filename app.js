@@ -1,12 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const port = 5000;
 const dbConn = require("./db/dbConfig");
 const userRoutes = require("./routes/userRoute");
 const controller = require("./controller/controller");
 const questionRoutes = require("./routes/questionRoute");
 const router = express.Router();
+app.use(cors());
 // register route
 // app.post("/api/users/register", (req, res) => {
 //   res.send("register user");
